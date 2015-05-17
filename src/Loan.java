@@ -72,9 +72,15 @@ public class Loan {
 		return loanDate;
 	}
 	
-	public void main(String args[]){
+}
+
+class TestLoan{
+	
+	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
 		boolean continueInput = true;
+		
+		Loan object = new Loan();
 		
 		do{
 			try{
@@ -87,9 +93,9 @@ public class Loan {
 				System.out.print("Enter Annual Interest Rate: ");
 				double annualInterestRate = input.nextDouble();
 				
-				System.out.print(this.getAnnualInterestRate());
-				System.out.print(this.getLoanAmount());
-				System.out.print(this.getLoanDate());
+				System.out.print(object.getAnnualInterestRate());
+				System.out.print(object.getLoanAmount());
+				System.out.print(object.getLoanDate());
 				
 				continueInput = true;
 			}
