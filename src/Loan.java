@@ -4,11 +4,14 @@ import java.util.*;
 
 public class Loan{
 	
+	//main method
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
 		boolean continueInput = true;
+		//new an object
 		TestLoan object = new TestLoan();
 	
+		//用do-while迴圈去跑 如果使用者輸入的數字小於零  會跑出錯誤並且要求使用者在輸入一次
 		do{
 			try{
 				
@@ -27,6 +30,7 @@ public class Loan{
 		
 		continueInput = true;
 		
+		//用do-while迴圈去跑 如果使用者輸入的數字小於零  會跑出錯誤並且要求使用者在輸入一次
 		do{
 			try{
 				System.out.print("Enter Loan Amount: ");
@@ -44,7 +48,7 @@ public class Loan{
 		
 		continueInput = true;
 		
-		
+		//用do-while迴圈去跑 如果使用者輸入的數字小於零  會跑出錯誤並且要求使用者在輸入一次
 		do{
 			try{
 			
@@ -61,6 +65,7 @@ public class Loan{
 			}
 		}while(continueInput);
 		
+		//print出最後結果
 		System.out.println("Your monthly payment is " + object.getMonthlyPayment());
 		System.out.println("Your total payment is " + object.getTotalPayment());
 		System.out.println(object.getLoanDate());
