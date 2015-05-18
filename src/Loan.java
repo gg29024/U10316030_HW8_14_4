@@ -97,8 +97,11 @@ class TestLoan {
 	}
 
 	/** Set a new annualInterestRate */
-	public void setAnnualInterestRate(double annualInterestRate) {
-		this.annualInterestRate = annualInterestRate;
+	public void setAnnualInterestRate(double annualInterestRate) throws IllegalArgumentException{
+		 if(annualInterestRate > 0)
+				this.annualInterestRate = annualInterestRate;
+		 else
+				throw new IllegalArgumentException("It can not be negative");
 	}
 
 	/** Return numberOfYears */
@@ -107,8 +110,12 @@ class TestLoan {
 	}
 
 	/** Set a new numberOfYears */
-	public void setNumberOfYears(int numberOfYears) {
-		this.numberOfYears = numberOfYears;
+	public void setNumberOfYears(int numberOfYears) throws IllegalArgumentException{
+		if(numberOfYears > 0)
+			this.numberOfYears = numberOfYears;
+		else
+			throw new IllegalArgumentException("It can not be negative");
+	
 	}
 
 	/** Return loanAmount */
@@ -117,8 +124,11 @@ class TestLoan {
 	}
 
 	/** Set a newloanAmount */
-	public void setLoanAmount(double loanAmount) {
-		this.loanAmount = loanAmount;
+	public void setLoanAmount(double loanAmount) throws IllegalArgumentException{
+		if(loanAmount > 0)
+			this.loanAmount = loanAmount;
+		else
+			throw new IllegalArgumentException("It can not be negative");
 	}
 
 	/** Find monthly payment */
