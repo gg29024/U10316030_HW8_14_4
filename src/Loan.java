@@ -1,8 +1,75 @@
 
 import java.util.*;
-import java.util.Scanner;
 
-public class Loan {
+
+public class Loan{
+	
+	public static void main(String args[]){
+		Scanner input = new Scanner(System.in);
+		boolean continueInput = true;
+		TestLoan object = new TestLoan();
+	
+		do{
+			try{
+				
+				System.out.print("Enter Number Of Years: ");
+				int numberOfYears = input.nextInt();
+				
+				object.setNumberOfYears(numberOfYears);
+				continueInput = false;
+				
+			}
+			catch(IllegalArgumentException ex){
+				System.out.print(ex);
+				System.out.println();
+			}
+		}while(continueInput);
+		
+		continueInput = true;
+		
+		do{
+			try{
+				System.out.print("Enter Loan Amount: ");
+				double loanAmount = input.nextDouble();
+				
+				object.setLoanAmount(loanAmount);
+				continueInput = false;
+				
+			}
+			catch(IllegalArgumentException ex){
+				System.out.print(ex);
+				System.out.println();
+			}
+		}while(continueInput);
+		
+		continueInput = true;
+		
+		
+		do{
+			try{
+			
+				System.out.print("Enter Annual Interest Rate: ");
+				double annualInterestRate = input.nextDouble();
+				
+				object.setAnnualInterestRate(annualInterestRate);
+				continueInput = false;
+				
+			}
+			catch(IllegalArgumentException ex){
+				System.out.print(ex);
+				System.out.println();
+			}
+		}while(continueInput);
+		
+		System.out.println("Your monthly payment is " + object.getMonthlyPayment());
+		System.out.println("Your total payment is " + object.getTotalPayment());
+		System.out.println(object.getLoanDate());
+		
+	}
+}
+
+
+class TestLoan {
 	
 	private double annualInterestRate;
 	private int numberOfYears;
@@ -10,14 +77,14 @@ public class Loan {
 	private java.util.Date loanDate;
 
 	/** Default constructor */
-	public Loan() {
+	public TestLoan() {
 		this(2.5, 1, 1000);
 	}
 
 	/** Construct a loan with specified annual interest rate,
       number of years and loan amount 
     */
-	public Loan(double annualInterestRate, int numberOfYears, double loanAmount) {
+	public TestLoan(double annualInterestRate, int numberOfYears, double loanAmount) {
 		this.annualInterestRate = annualInterestRate;
 		this.numberOfYears = numberOfYears;
 		this.loanAmount = loanAmount;
@@ -72,38 +139,4 @@ public class Loan {
 		return loanDate;
 	}
 	
-}
-
-class TestLoan{
-	
-	public static void main(String args[]){
-		Scanner input = new Scanner(System.in);
-		boolean continueInput = true;
-		
-		Loan object = new Loan();
-		
-		do{
-			try{
-				System.out.print("Enter Loan Amount: ");
-				double loanAmount = input.nextDouble();
-				
-				System.out.print("Enter Number Of Years: ");
-				int numberOfYears = input.nextInt();
-				
-				System.out.print("Enter Annual Interest Rate: ");
-				double annualInterestRate = input.nextDouble();
-				
-				System.out.print(object.getAnnualInterestRate());
-				System.out.print(object.getLoanAmount());
-				System.out.print(object.getLoanDate());
-				
-				continueInput = true;
-			}
-			catch(InputMismatchException ex){
-				System.out.println("Try again. (" + 
-				          "Incorrect input: an integer is required)");
-				input.nextLine();
-			}
-		}while(continueInput);
-	}
 }
